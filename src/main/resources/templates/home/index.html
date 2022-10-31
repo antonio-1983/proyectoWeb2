@@ -97,10 +97,29 @@
 <script languaje=javascript>
     window.defaultStatus = "Algo nuevo";
 </script>
-
-    <div class="container">
+ <!-- card nuevo -->
+    <div class="container" th:each="p: ${listaProductos}">
         <div class="row p-4">
-        <!-- card nuevo -->
+            <div class="col-md">
+            	<div class="card img-fluid">
+				  <img th:alt="${p.imagen}" th:src="@{'/fotos/' + ${p.imagen}}" style="width:15%">
+				 <div class="container">
+				    <h4>
+				    <p th:text="${p.descripcion}"></p>
+				    </h4> 
+				    <p th:text="${p.precio}"></p> 
+			  	</div>
+			</div>
+            </div>
+            </div>
+            </div>
+        <!-- ***************** -->
+         
+
+            <!-- card sin for 
+            
+            <div class="container"">
+        <div class="row p-4">
             <div class="col-md">
             	<div class="card img-fluid">
 				  <img src="fotos/sillon chenille redondo - copia.jpg" alt="Avatar" style="width:100%">
@@ -110,10 +129,8 @@
 			  	</div>
 			</div>
             </div>
-        <!-- ***************** -->
-         
-
-            <!-- card nuevo -->
+            
+            
             <div class="col-md">
             	<div class="card img-fluid">
 				  <img src="fotos/silla gris.jpg" alt="Avatar" style="width:100%">
@@ -123,10 +140,9 @@
 			  	</div>
 			</div>
             </div>
-        <!-- ***************** -->
+         
         
         
-			<!-- card nuevo -->
             <div class="col-md">
             	<div class="card img-fluid">
 				  <img src="fotos/butacon panavioleta.jpg" alt="Avatar" style="width:100%">
@@ -136,9 +152,7 @@
 			  	</div>
 			</div>
             </div>
-        <!-- ***************** -->
-        
-   			<!-- card nuevo *****-->
+       
             <div class="col-md">
             	<div class="card img-fluid">
 				  <img src="fotos/redonda gris.jpg" alt="Avatar" style="width:100%">
@@ -148,12 +162,12 @@
 			  	</div>
 			</div>
             </div>
-        <!-- ***************** -->
+     
   
         </div>
         
         <div class="row p-4">
-        <!-- card nuevo ***********ACA ES DONDE ESTAMOS HACIENDO EDITANDO LAS TARJETAS*******-->
+
             <div class="col-md">
             	<div class="card img-fluid">
 				  <img src="fotos/sillon chenille.jpg" alt="Avatar" style="width:100%">
@@ -163,10 +177,7 @@
 			  	</div>
 			</div>
             </div>
-        <!-- ***************** -->
-         
-
-            <!-- card nuevo -->
+       
             <div class="col-md">
             	<div class="card img-fluid">
 				  <img src="fotos/respaldo1.jpg" alt="Avatar" style="width:100%">
@@ -176,10 +187,7 @@
 			  	</div>
 			</div>
             </div>
-        <!-- ***************** -->
-        
-        
-			<!-- card nuevo -->
+
             <div class="col-md">
             	<div class="card img-fluid">
 				  <img src="fotos/banqueta romana chenille.jpg" alt="Avatar" style="width:100%">
@@ -189,9 +197,7 @@
 			  	</div>
 			</div>
             </div>
-        <!-- ***************** -->
         
-   			<!-- card nuevo -->
             <div class="col-md">
             	<div class="card img-fluid">
 				  <img src="fotos/banqueta acqua.jpg" alt="Avatar" style="width:100%">
@@ -201,10 +207,10 @@
 			  	</div>
 			</div>
             </div>
-        <!-- ***************** -->
+        
   
         </div>
- 
+ -->
     </div>
 
 

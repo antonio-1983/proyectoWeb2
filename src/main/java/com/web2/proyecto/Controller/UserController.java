@@ -44,6 +44,6 @@ public class UserController {
 	
 	@GetMapping("/loginsuccess")
 	public String loginCheck() {
-		return "redirect:/persona/pruebaLogin"; //no esta andando
+		return "redirect:/home/index"; //no esta andando
 	}
 }

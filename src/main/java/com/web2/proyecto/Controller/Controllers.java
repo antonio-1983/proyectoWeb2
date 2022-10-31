@@ -17,6 +17,10 @@ import com.web2.proyecto.Helpers.ViewRouteHelper;
 
 import com.web2.proyecto.model.UsuarioModel;
 import com.web2.proyecto.service.ICarritoService;
+import com.web2.proyecto.service.IProductoService;
+
+
+
 import com.web2.proyecto.service.IUsuarioService;
 
 @Controller
@@ -32,17 +36,30 @@ public class Controllers {
 	@Qualifier("carritoService")
 	private ICarritoService carritoService;
 	
-
+	@Autowired
+	@Qualifier("productoService")
+	private IProductoService productoService;
+	
 		@GetMapping ("")
 		public String home1() {
 			return ViewRouteHelper.INDEX;
 		}
 		
-		@GetMapping ("/index")
+		/*@GetMapping ("/index")
 		public String home() {
 			return ViewRouteHelper.INDEX;
-		}
+		}*/
 		
+		
+		//**********************TRATANDO DE CAMBIAR EL INDEX***********
+		@GetMapping ("/index")
+		public ModelAndView  listaProducto() {	
+			ModelAndView mV = new ModelAndView();
+			mV.setViewName(ViewRouteHelper.INDEX);
+			mV.addObject("listaProductos",productoService.getAll());
+			return mV;	
+		}
+	//*********************************************************
 		
 	
 		@GetMapping ("/formularioUsuario")

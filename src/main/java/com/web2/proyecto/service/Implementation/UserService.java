@@ -16,13 +16,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-
 import com.web2.proyecto.converter.UserConverter;
-
 import com.web2.proyecto.entities.UserRole;
-
-
 import com.web2.proyecto.repository.IUserRepository;
+
 
 @Service("userService")
 public class UserService implements UserDetailsService {
@@ -54,10 +51,5 @@ public class UserService implements UserDetailsService {
 		}
 		return new ArrayList<GrantedAuthority>(grantedAuthorities);
 	}
-	
 
-	
-	
-	
-	
 }
