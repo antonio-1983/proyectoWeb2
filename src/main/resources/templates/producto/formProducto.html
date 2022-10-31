@@ -1,0 +1,12 @@
+<!--   <p> BIENVENIDO: <span th:text="${usuario.username}"/>   -->
+
+<form action="#" th:action="@{nuevoProducto}"  th:object="${producto}" method="post" enctype="multipart/form-data">
+<p> Nombre: <input type="text" th:field="*{descripcion}"/> </p>
+<p th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}">NOMBRE ERROR</p>
+<p> Imagen: <input type="file" name="file" id="imagen"/> </p>
+<p> Precio $: <input type="text" th:field="*{precio}"/> </p>
+<p th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}">PRECIO ERROR</p>
+
+<input type="submit"/>
+</form>
+

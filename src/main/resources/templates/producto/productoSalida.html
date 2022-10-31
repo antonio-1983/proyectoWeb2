@@ -1,0 +1,24 @@
+<h1>PRODUCTO</h1>
+<p>nombre: <span th:text="${producto.descripcion}"/></p>
+<p>precio: <span th:text="${producto.precio}"/></p>
+<img th:alt="${producto.imagen}" th:src="@{'/fotos/'+ ${producto.imagen}}" style="max-width:15%"></p>
+
+
+<h1>------------PRODUCTOS EN LA BBDD-----------</h1>
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>precio</th>
+		<th>imagen</th>
+		
+	</tr>
+	
+	<tr th:each="p: ${listaProductos}">
+	<td th:text="${p.descripcion}"></td>
+	<td th:text="${p.precio}"></td>
+	<td>
+	<img th:alt="${p.imagen}" th:src="@{'/fotos/' + ${p.imagen}}" style="max-width:15%">
+	</td>
+	</tr>
+	
+</table>

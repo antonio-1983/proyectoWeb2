@@ -1,0 +1,3 @@
+El proyecto es una pagina que muestra los trabajos de una tapiceria ( en la cual trabajaba hace unos años)
+las fotos son reales propias, por eso no esta con filtro ni nada.
+el carrusel no lo pude lograr. el menu navegable lo puede hacer al igual que el formulario.

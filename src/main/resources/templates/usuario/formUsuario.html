@@ -1,0 +1,13 @@
+
+<form action="#" th:action="@{nuevoUsuario}"  th:object="${usuario}" method="post">
+<p> Nombre: <input type="text" th:field="*{nombre}"/> </p>
+<p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">NOMBRE ERROR</p>
+<p> Apellido: <input type="text" th:field="*{apellido}"/> </p>
+<p th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">APELLIDO ERROR</p>
+<p> E-mail : <input type="text" th:field= "*{email}"/></p> 
+<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">EMAIL ERROR</p>
+<!-- agregamos los datos para la cuenta   -->
+<p><input type="hidden" th:field="*{carrito.id}" /> </p>   <!--asi anda , si lo saco nno anda-->
+ 
+<input type="submit"/>
+</form>
