@@ -19,13 +19,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
 @Table(name="user")
-@Getter @Setter @NoArgsConstructor
+
 public class User {
 
 	@Id
@@ -66,6 +62,10 @@ public class User {
 		this.updatedAt = updatedAt;
 		this.userRoles = userRoles;
 	
+	}
+
+	public User() {
+		super();
 	}
 
 	public int getId() {

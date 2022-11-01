@@ -16,12 +16,8 @@ import javax.persistence.UniqueConstraint;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
-@Getter @Setter @NoArgsConstructor
+
 @Table(name="user_role",uniqueConstraints=@UniqueConstraint(columnNames= {"role","user_id"}))
 public class UserRole {
 

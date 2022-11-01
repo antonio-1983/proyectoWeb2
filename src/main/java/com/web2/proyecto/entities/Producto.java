@@ -15,13 +15,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 
 @Entity
-@Getter @Setter @NoArgsConstructor
+
 @Table(name="producto")
 public class Producto {
 
@@ -83,9 +81,7 @@ public class Producto {
 	}
 	
 	
-	public Producto() {
-		super();
-	}
+
 	
 	
 	public Producto(int id, String descripcion, float precio, String imagen, Set<Compra> compra) {
