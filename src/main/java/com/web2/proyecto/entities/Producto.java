@@ -84,6 +84,10 @@ public class Producto {
 
 	
 	
+	public Producto() {
+		super();
+	}
+
 	public Producto(int id, String descripcion, float precio, String imagen, Set<Compra> compra) {
 		super();
 		this.id = id;

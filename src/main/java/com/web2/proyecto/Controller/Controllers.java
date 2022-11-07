@@ -24,7 +24,7 @@ import com.web2.proyecto.service.IProductoService;
 import com.web2.proyecto.service.IUsuarioService;
 
 @Controller
-@RequestMapping("/home")
+//@RequestMapping("/home")
 public class Controllers {
 	
 	@Autowired
@@ -41,14 +41,10 @@ public class Controllers {
 	private IProductoService productoService;
 	
 		@GetMapping ("")
-		public String home1() {
-			return ViewRouteHelper.INDEX;
+		public ModelAndView inicio() {
+			return listaProducto();
 		}
-		
-		/*@GetMapping ("/index")
-		public String home() {
-			return ViewRouteHelper.INDEX;
-		}*/
+
 		
 		
 		//**********************TRATANDO DE CAMBIAR EL INDEX***********
@@ -81,13 +77,8 @@ public class Controllers {
 					usuarioService.insertOrUpdate(usuario);
 					mV.setViewName(ViewRouteHelper.NUEVO_USUARIO);
 					mV.addObject("usuario", usuario);
-					
-					
-					
 					mV.addObject("listaUsuarios",usuarioService.getAll());
 				}
-			
-			
 			return mV;
 		}
 		

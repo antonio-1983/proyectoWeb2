@@ -14,7 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,7 +35,34 @@ public class productoController {
 	@Autowired
 	@Qualifier("productoService")
 	private IProductoService productoService; 
-	 	
+	
+	
+	
+	@GetMapping("/listaProductos")
+	public ModelAndView listaProductos() {
+		ModelAndView mV = new ModelAndView();
+		mV.setViewName(ViewRouteHelper.LISTA_PRODUCTOS);
+		mV.addObject("listaProductos",productoService.getAll());
+		return mV;
+	}
+	
+	
+	@GetMapping("/eliminarProducto/{id}")
+	public ModelAndView  eliminarProducto(@PathVariable("id")int id, Model model) {	
+		productoService.remove(id);
+		return listaProductos();	
+	}
+
+	@GetMapping("/editarProducto/{id}")
+	public ModelAndView editarProducto(@PathVariable("id") int id, Model model) {
+		ProductoModel producto = productoService.traerPorId(id);
+		model.addAttribute("producto", producto);
+		//productoService.remove(id);
+		ModelAndView modelAndView = new ModelAndView(ViewRouteHelper.FORM_PRODUCTO);
+		//productoService.remove(id);//agregue esto para eliminar para que no se ingrese 2 veces
+		return modelAndView;
+	}
+	
 	@GetMapping ("/formProducto")
 	public ModelAndView formProducto(Model model) {
 		model.addAttribute("producto", new ProductoModel());
@@ -64,12 +93,42 @@ public class productoController {
 					}
 				}
 				productoService.insertOrUpdate(producto);
-				mV.setViewName(ViewRouteHelper.NUEVO_PRODUCTO);
+				mV.setViewName(ViewRouteHelper.LISTA_PRODUCTOS);//probando este redirect
 				mV.addObject("producto", producto);
 				mV.addObject("listaProductos",productoService.getAll());
 			}
 		return mV;
 	}
 
+	@PostMapping("/editarProducto/nuevoProducto")
+	public ModelAndView editarProducto(@Valid @ModelAttribute("producto")ProductoModel producto,
+			BindingResult b, @RequestParam("file") MultipartFile imagen) {
+		ModelAndView mV = new ModelAndView();
+		if (b.hasErrors()) {
+			mV.setViewName(ViewRouteHelper.FORM_PRODUCTO);
+		}
+			else {
+				if(!imagen.isEmpty()) {
+					Path directorioImagenes = Paths.get("src//main//resources//static/fotos");
+					String rutaAbsoluta=directorioImagenes.toFile().getAbsolutePath();
+					try {
+						byte[] bytesImg=imagen.getBytes();
+						Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+						Files.write(rutaCompleta, bytesImg);
+						
+						producto.setImagen(imagen.getOriginalFilename());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				productoService.insertOrUpdate(producto);
+				mV.setViewName(ViewRouteHelper.LISTA_PRODUCTOS);//probando este redirect
+				mV.addObject("producto", producto);
+				mV.addObject("listaProductos",productoService.getAll());
+			}
+		return mV;
+	}
+
+	
 	//creado recien********SEGUIR CREANDO LOS CONTROLLERS
 }

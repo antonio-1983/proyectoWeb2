@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tapiceria de Estilo</title>
-    <link rel="shortcut icon" href="LogoTapiceria.png">
+    <link rel="shortcut icon" th:href="@{../LogoTapiceria.png}">
   
    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <link rel="stylesheet" href="styles.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="stylesheet" th:href="@{https://necolas.github.io/normalize.css/8.0.1/normalize.css}">
+    <link rel="stylesheet" th:href="@{../styles.css}">
+<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css}">
 </head>
 
 
@@ -41,13 +43,13 @@
             <ul class="navbar-nav  ms-auto mb-auto mb-lg-0">
             
                 <li class="nav-item ">
-                 <a class="nav-link active" aria-current="page" href="https://github.com/antonio-1983" alt="Repositorio Github"  target="_blank">
+                 <a class="nav-link active" aria-current="page" href="http://localhost:8080/carrito/carrito" alt="carrito">
                   <i class="bi bi-cart3" title="Carrito"></i>
                  </a>
                </li>
               
               <li class="nav-item ">
-                 <a class=" nav-link active " aria-current="page" href="http://localhost:8080/login" alt="login"><!--  target="_blank"-->
+                 <a class=" nav-link active " aria-current="page" href="http://localhost:8080/carrito" alt="carrito"> <!--  target="_blank"-->
                   <i class="bi bi-person" title="Login"></i>
                  </a>
                </li>
@@ -63,7 +65,7 @@
                 <div class="container-fluid">
                     <div class="navbar-nav">
                       <a class="nav-link active" aria-current="page" href="#historia">Quienes somos?</a>
-                      <a class="nav-link" href="#contacto">Contacto</a>
+                     
                       
                     </div>
                 </div>
@@ -97,122 +99,23 @@
 <script languaje=javascript>
     window.defaultStatus = "Algo nuevo";
 </script>
- <!-- card nuevo -->
-    <div class="container" th:each="p: ${listaProductos}">
-        <div class="row p-4">
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img th:alt="${p.imagen}" th:src="@{'/fotos/' + ${p.imagen}}" style="width:15%">
-				 <div class="container">
-				    <h4>
-				    <p th:text="${p.descripcion}"></p>
-				    </h4> 
-				    <p th:text="${p.precio}"></p> 
-			  	</div>
-			</div>
-            </div>
-            </div>
-            </div>
-        <!-- ***************** -->
-         
 
-            <!-- card sin for 
-            
-            <div class="container"">
-        <div class="row p-4">
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img src="fotos/sillon chenille redondo - copia.jpg" alt="Avatar" style="width:100%">
-				 <div class="container">
-				    <h4><b>Sillon chenille</b></h4> 
-				    <p>$7000</p> 
-			  	</div>
-			</div>
-            </div>
-            
-            
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img src="fotos/silla gris.jpg" alt="Avatar" style="width:100%">
-				 <div class="container">
-				    <h4><b>Silla capitone</b></h4> 
-				    <p>$10000</p> 
-			  	</div>
-			</div>
-            </div>
-         
-        
-        
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img src="fotos/butacon panavioleta.jpg" alt="Avatar" style="width:100%">
-				 <div class="container">
-				    <h4><b>Butaca capitone</b></h4> 
-				    <p>$8000</p> 
-			  	</div>
-			</div>
-            </div>
-       
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img src="fotos/redonda gris.jpg" alt="Avatar" style="width:100%">
-				 <div class="container">
-				    <h4><b>Banqueta redonda</b></h4> 
-				    <p>$8000</p> 
-			  	</div>
-			</div>
-            </div>
-     
-  
-        </div>
-        
-        <div class="row p-4">
-
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img src="fotos/sillon chenille.jpg" alt="Avatar" style="width:100%">
-				 <div class="container">
-				    <h4><b>Sillon rayado</b></h4> 
-				    <p>$7000</p> 
-			  	</div>
-			</div>
-            </div>
-       
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img src="fotos/respaldo1.jpg" alt="Avatar" style="width:100%">
-				 <div class="container">
-				    <h4><b>Respaldo capitone</b></h4> 
-				    <p>$10000</p> 
-			  	</div>
-			</div>
-            </div>
-
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img src="fotos/banqueta romana chenille.jpg" alt="Avatar" style="width:100%">
-				 <div class="container">
-				    <h4><b>Banqueta romana</b></h4> 
-				    <p>$8000</p> 
-			  	</div>
-			</div>
-            </div>
-        
-            <div class="col-md">
-            	<div class="card img-fluid">
-				  <img src="fotos/banqueta acqua.jpg" alt="Avatar" style="width:100%">
-				 <div class="container">
-				    <h4><b>Banqueta chaise</b></h4> 
-				    <p>$8000</p> 
-			  	</div>
-			</div>
-            </div>
-        
-  
-        </div>
- -->
-    </div>
-
+       <div class="container mt-5 m-auto row row-cols-1 row-cols-md-4 g-4">
+        <div th:each="p: ${listaProductos}">  
+  			<div class="col">
+   			 <div class="card">
+      			<img th:alt="${p.imagen}" th:src="@{'/fotos/' + ${p.imagen}}" style="width:100%">
+      				<div class="card-body">
+       				 <h5 th:text="${p.descripcion}"></h5>
+       					<p th:text="${p.precio}"></p>
+       					<button type="button" class="btn btn-ligth m-auto">
+            					Agregar al carrito
+           					 </button>
+      				</div>
+    			</div>
+  			</div>
+   		 </div>     
+		</div> 
 
 <section class="textCaja pt-5">
     <a name="historia"></a>
@@ -230,32 +133,7 @@
         <p>TAPICERIA DE ESTILO</p>
     </div>
   </div>
-<section>
-    <a name="contacto" href=""></a>
-    <form netlify method="POST" id="formContacto">
-        <div class="tituloFormulario">
-            Contacto
-        </div>
-        <div>
-           <textarea name="comentarios" placeholder="Escribe tu mensaje">
 
-           </textarea>
-        </div>
-        <div class="postTextarea1">
-            <label>
-                Nombre
-                <input type="text" name="nombre" required>
-            </label>
-        </div>
-        <div  class="postTextarea">
-            <label>
-            E mail
-            <input type="email" name="email" required>
-            <input type="submit" value="enviar">
-            </label>
-        </div>
-    </form>
-</section>
 <div class="container-fluid bg-primary mt-5">
 
 </div>
