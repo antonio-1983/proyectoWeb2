@@ -57,9 +57,7 @@ public class productoController {
 	public ModelAndView editarProducto(@PathVariable("id") int id, Model model) {
 		ProductoModel producto = productoService.traerPorId(id);
 		model.addAttribute("producto", producto);
-		//productoService.remove(id);
 		ModelAndView modelAndView = new ModelAndView(ViewRouteHelper.FORM_PRODUCTO);
-		//productoService.remove(id);//agregue esto para eliminar para que no se ingrese 2 veces
 		return modelAndView;
 	}
 	
