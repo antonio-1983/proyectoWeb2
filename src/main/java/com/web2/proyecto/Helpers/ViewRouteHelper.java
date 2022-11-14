@@ -15,4 +15,7 @@ public class ViewRouteHelper {
 	public final static String FORM_PRODUCTO = "producto/formProducto";
 	public final static String NUEVO_PRODUCTO = "producto/productoSalida";
 	public final static String LISTA_PRODUCTOS = "producto/listaProductos";
+	
+	//CARRITO
+	public final static String CARRITO = "carrito/carrito";
 }

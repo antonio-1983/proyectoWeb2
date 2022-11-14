@@ -42,7 +42,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
            <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav  ms-auto mb-auto mb-lg-0">
                 <li class="nav-item ">
-                 <a class="nav-link active" aria-current="page" href="http://localhost:8080/carrito/carrito" alt="carrito">
+                 <a class="nav-link active" aria-current="page" href="http://localhost:8080/carrito" alt="carrito">
                   <i class="bi bi-cart3" title="Carrito"></i>
                  </a>
                </li>
@@ -105,7 +105,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
       			<img th:alt="${p.imagen}" th:src="@{'/fotos/' + ${p.imagen}}" style="width:100%">
       				<div class="card-body">
        				 <h5 th:text="${p.descripcion}"></h5>
-       					<p th:text="${p.precio}"></p>
+       					<p th:text="'$ ' + ${p.precio}"></p>
        					<button type="button" class="btn btn-ligth m-auto">
             					Agregar al carrito
            					 </button>

@@ -128,5 +128,5 @@ public class productoController {
 	}
 
 	
-	//creado recien********SEGUIR CREANDO LOS CONTROLLERS
+
 }

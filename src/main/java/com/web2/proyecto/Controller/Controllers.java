@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import com.web2.proyecto.Helpers.ViewRouteHelper;
 
+import com.web2.proyecto.model.CompraModel;
 import com.web2.proyecto.model.UsuarioModel;
 import com.web2.proyecto.service.ICarritoService;
+
 import com.web2.proyecto.service.IProductoService;
 
 
@@ -39,15 +41,14 @@ public class Controllers {
 	@Autowired
 	@Qualifier("productoService")
 	private IProductoService productoService;
+
 	
 		@GetMapping ("")
 		public ModelAndView inicio() {
 			return listaProducto();
 		}
-
 		
 		
-		//**********************TRATANDO DE CAMBIAR EL INDEX***********
 		@GetMapping ("/index")
 		public ModelAndView  listaProducto() {	
 			ModelAndView mV = new ModelAndView();
@@ -55,9 +56,24 @@ public class Controllers {
 			mV.addObject("listaProductos",productoService.getAll());
 			return mV;	
 		}
+		
+		
+		
 	//*********************************************************
 		
+		@GetMapping ("/carrito")
+		public ModelAndView carrito(Model model) {
+			model.addAttribute("compra", new CompraModel());
+			ModelAndView modelAndView = new ModelAndView(ViewRouteHelper.CARRITO);
+			return modelAndView;
 	
+		}
+
+		//**********************TRATANDO DE HACER EL CARRITO /\ ***********
+		
+		
+		
+		
 		@GetMapping ("/formularioUsuario")
 		public ModelAndView formularioUsuario(Model model) {
 			model.addAttribute("usuario", new UsuarioModel());
@@ -77,9 +93,18 @@ public class Controllers {
 					usuarioService.insertOrUpdate(usuario);
 					mV.setViewName(ViewRouteHelper.NUEVO_USUARIO);
 					mV.addObject("usuario", usuario);
-					mV.addObject("listaUsuarios",usuarioService.getAll());
+					mV.addObject("listaProductos",productoService.getAll());
+					//mV.addObject("listaUsuarios",usuarioService.getAll());
 				}
 			return mV;
 		}
 		
+		/*
+		  @GetMapping("/agregarCarrito/{id}")
+		  public ModelAndView (@PathVariable("id") int id, Model model) {
+		  ModelAndView mV = new ModelAndView();
+		  compraService.insertOrUpdate(compra);
+		  return mV;	
+		  }
+		 */
 	}
