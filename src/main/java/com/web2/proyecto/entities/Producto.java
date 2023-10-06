@@ -1,8 +1,7 @@
 package com.web2.proyecto.entities;
 
 
-import java.util.HashSet;
-import java.util.Set;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,10 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+
+
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 
@@ -35,10 +35,6 @@ public class Producto {
 	
 	@Column(name="imagen",nullable=false,length=100)
 	private String imagen;
-	
-	@ManyToMany(mappedBy = "productos")
-	@JsonIgnoreProperties("productos")
-	public Set<Compra> compra = new HashSet<>();
 
 	public int getId() {
 		return id;
@@ -72,29 +68,8 @@ public class Producto {
 		this.imagen = imagen;
 	}
 
-	public Set<Compra> getCompra() {
-		return compra;
-	}
-
-	public void setCompra(Set<Compra> compra) {
-		this.compra = compra;
-	}
-	
-	
-
-	
-	
 	public Producto() {
 		super();
-	}
-
-	public Producto(int id, String descripcion, float precio, String imagen, Set<Compra> compra) {
-		super();
-		this.id = id;
-		this.descripcion = descripcion;
-		this.precio = precio;
-		this.imagen = imagen;
-		this.compra = compra;
 	}
 
 	public Producto(int id, String descripcion, float precio, String imagen) {
@@ -103,13 +78,14 @@ public class Producto {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.imagen = imagen;
-		this.compra = new HashSet<>();
+		
 	}
+
 
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", descripcion=" + descripcion + ", precio=" + precio + ", imagen=" + imagen
-				+ ", compra=" + compra + "]";
+				+ ", compra="+" ]";
 	}
 	
 }

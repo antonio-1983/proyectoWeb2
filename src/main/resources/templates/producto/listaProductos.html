@@ -33,9 +33,16 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
               <li class="nav-item  item-info">
                 <a class="nav-link active" aria-current="page" href="http://localhost:8080/index" alt="home"><img src="../../MiniLogo.png" alt=""></a>              
               </li>
+              <li>
+              	<h1>
+		        <a class="nav-link active" aria-current="page"  href="http://localhost:8080/listaConsultas" alt="consultas">Consultas</a> 
+              	</h1>
+
+              </li>
+              
             </ul>
             
-            
+            <!--
             <button class="navbar-toggler navbar-light btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="bi bi-grip-vertical"></span>
             </button>
@@ -49,13 +56,16 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
                </li>
               
               <li class="nav-item ">
-                 <a class=" nav-link active " aria-current="page" href="http://localhost:8080/formularioUsuario" alt="login"><!--  target="_blank"-->
+                 <a class=" nav-link active " aria-current="page" href="http://localhost:8080/formularioUsuario" alt="login">
                   <i class="bi bi-person" title="Login"></i>
                  </a>
                </li>
               
              </ul>
             </div>
+            
+            
+            -->
         </div>
       </nav>
 </header>
@@ -71,15 +81,15 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 		      
      
        <div class="container mt-5 m-auto row row-cols-1 row-cols-md-4 g-4">
-        <div th:each="p: ${listaProductos}">  
-  			<div class="col">
-   			 <div class="card">
-      			<img th:alt="${p.imagen}" th:src="@{'/fotos/' + ${p.imagen}}" style="width:100%">
-      				<div class="card-body">
-       				 <h5 th:text="${p.descripcion}"></h5>
-       					<p th:text="${p.precio}"></p>
-      				</div>	
-      				<div class="container">
+        	<div th:each="p: ${listaProductos}">  
+  				<div class="col">
+   			 		<div class="card">
+      					<img th:alt="${p.imagen}" th:src="@{'/fotos/' + ${p.imagen}}" style="width:100%">
+      					<div class="card-body">
+		       				 <h5 th:text="${p.descripcion}"></h5>
+		       					<p th:text="${p.precio}"></p>
+      					</div>	
+      					<div class="container">
             					<button type="button" class="btn btn-outline-danger m-auto mb-1">
             						<a th:href="@{/producto/eliminarProducto/} + ${p.id}" style="text-decoration:none " th:text="'Eliminar'" title="Eliminar"></a>
             					</button> 
@@ -87,10 +97,10 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             					<button type="button" class="btn btn-outline-warning m-auto mb-1">
             						<a th:href="@{/producto/editarProducto/} + ${p.id}" style="text-decoration:none " th:text="'Editar'" title="Editar"></a>
            						 </button> 
-           			</div>
+           				</div>
     				</div>
-  			</div>
-   		 </div>     
+  				</div>
+   		 	</div>     
 		</div> 
 		
 		<div class="container-fluid header">

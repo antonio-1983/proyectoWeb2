@@ -43,19 +43,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             </button>
            <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav  ms-auto mb-auto mb-lg-0">
-            
-                <li class="nav-item ">
-                 <a class="nav-link active" aria-current="page" href="http://localhost:8080/carrito" alt="carrito">
-                  <i class="bi bi-cart3" title="Carrito"></i>
-                 </a>
-               </li>
-              
-              <li class="nav-item ">
-                 <a class=" nav-link active " aria-current="page" href="http://localhost:8080/formularioUsuario" alt="login"><!--  target="_blank"-->
-                  <i class="bi bi-person" title="Login"></i>
-                 </a>
-               </li>
-              
+                   
              </ul>
             </div>
         </div>
@@ -71,6 +59,10 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <p th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">APELLIDO ERROR</p>
 <p> E-mail : <input type="text" th:field= "*{email}"/></p> 
 <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">EMAIL ERROR</p>
+<!--agregamos este parte para llenar la consulta --> 
+<p> Consulta: <input type="text" th:field="*{consulta}"/> </p>
+<p th:if="${#fields.hasErrors('consulta')}" th:errors="*{consulta}">CONSULTA ERROR</p>
+
 <!-- agregamos los datos para la cuenta   -->
 <p><input type="hidden" th:field="*{carrito.id}" /> </p>   <!--asi anda , si lo saco nno anda-->
  <p><input type="hidden" th:field="*{id}"/></p>

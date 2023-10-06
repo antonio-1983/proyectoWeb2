@@ -27,6 +27,7 @@ import com.web2.proyecto.model.ProductoModel;
 
 import com.web2.proyecto.service.IProductoService;
 
+
 @Controller
 @RequestMapping("/producto")
 public class productoController {

@@ -23,7 +23,31 @@ public class UsuarioModel {
 	@Size(min=10,max=30)
 	private String email;
 	
+	@Size(min=4, max =100)
+	private String consulta;
+	
+	@Size(min=4, max =100)
+	private String respuesta;
+	
 	private CarritoModel carrito;
+	
+	
+
+	public String getConsulta() {
+		return consulta;
+	}
+
+	public void setConsulta(String consulta) {
+		this.consulta = consulta;
+	}
+
+	public String getRespuesta() {
+		return respuesta;
+	}
+
+	public void setRespuesta(String respuesta) {
+		this.respuesta = respuesta;
+	}
 
 	public int getId() {
 		return id;
@@ -105,6 +129,31 @@ public class UsuarioModel {
 		this.email = email;
 	}
 
+	public UsuarioModel(int id, @Size(min = 4, max = 12) String nombre, @Size(min = 4, max = 12) String apellido,
+			@Email @Size(min = 10, max = 30) String email, @Size(min = 4, max = 100) String consulta,
+			CarritoModel carrito) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.consulta = consulta;
+		this.carrito = carrito;
+	}
 
+	public UsuarioModel(int id, @Size(min = 4, max = 12) String nombre, @Size(min = 4, max = 12) String apellido,
+			@Email @Size(min = 10, max = 30) String email, @Size(min = 4, max = 100) String consulta,
+			@Size(min = 4, max = 100) String respuesta, CarritoModel carrito) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.consulta = consulta;
+		this.respuesta = respuesta;
+		this.carrito = carrito;
+	}
+
+	
 
 }

@@ -41,15 +41,17 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             </button>
            <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav  ms-auto mb-auto mb-lg-0">
-                <li class="nav-item ">
-                 <a class="nav-link active" aria-current="page" href="http://localhost:8080/carrito" alt="carrito">
-                  <i class="bi bi-cart3" title="Carrito"></i>
-                 </a>
-               </li>
+            
+            
+              
               
               <li class="nav-item ">
                  <a class=" nav-link active " aria-current="page" href="http://localhost:8080/formularioUsuario" alt="Perfil"> <!--  target="_blank"-->
+                 <p>
+                 Consultar
+                 
                   <i class="bi bi-person" title="Login"></i>
+                  </p>
                  </a>
                </li>
              </ul>
@@ -63,8 +65,6 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
                 <div class="container-fluid">
                     <div class="navbar-nav">
                       <a class="nav-link active" aria-current="page" href="#historia">Quienes somos?</a>
-                     
-                      
                     </div>
                 </div>
               </nav>
@@ -106,9 +106,8 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
       				<div class="card-body">
        				 <h5 th:text="${p.descripcion}"></h5>
        					<p th:text="'$ ' + ${p.precio}"></p>
-       					<button type="button" class="btn btn-ligth m-auto">
-            					Agregar al carrito
-           					 </button>
+       					
+           				
       				</div>
     			</div>
   			</div>
@@ -138,7 +137,12 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <footer class="container-fluid text-white p-2 pie">
         <p class="text-center">
          <i class="fa fa-copyright" 
-         aria-hidden="true"></i>2022 - Derechos Reservados
+         aria-hidden="true"></i>2023 - Derechos Reservados
+        </p>
+        
+        <p>
+        <a class="nav-link active" aria-current="page" href="http://localhost:8080/login" alt="desarrolladores">Desarrolladores</a> 
+        
         </p>
     </footer>
 </body>

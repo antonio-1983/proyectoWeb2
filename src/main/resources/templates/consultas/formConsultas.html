@@ -26,12 +26,14 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid ">
-            <ul class="navbar-nav mb-auto mb-lg-0 ">
+            <ul class="navbar-nav mb-2 mb-lg-0 ">
              <!--  <li class="nav-item item-info">
                 <p><img src="" alt=""></p>             
               </li> -->
               <li class="nav-item  item-info">
-                <a class="nav-link active" aria-current="page" href="http://localhost:8080/index" alt="home"><img src="../../MiniLogo.png" alt=""></a>             
+                
+                <a class="nav-link active" aria-current="page" href="http://localhost:8080/index" alt="home"><img src="../../MiniLogo.png" alt=""> </a>             
+                         
               </li>
             </ul>
             
@@ -41,6 +43,9 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             </button>
            <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav  ms-auto mb-auto mb-lg-0">
+            
+            
+            <!--
                 <li class="nav-item ">
                  <a class="nav-link active" aria-current="page" href="http://localhost:8080/carrito" alt="carrito">
                   <i class="bi bi-cart3" title="Carrito"></i>
@@ -48,33 +53,46 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
                </li>
               
               <li class="nav-item ">
-                 <a class=" nav-link active " aria-current="page" href="http://localhost:8080/formularioUsuario" alt="Perfil"> <!--  target="_blank"-->
+                 <a class=" nav-link active " aria-current="page" href="http://localhost:8080/formularioUsuario" alt="login">
                   <i class="bi bi-person" title="Login"></i>
                  </a>
                </li>
-               
-                
+              -->
+              
+              
+              
              </ul>
             </div>
         </div>
       </nav>
 </header>
+<!--******************************F O R M U L A R I O ************************************************************* -->
+<!--   <p> BIENVENIDO: <span th:text="${usuario.username}"/>   -->
+<h1 class="container mb-3 m-auto ">CONSULTA</h1>
+<div>
+<!--   <p th:text="${consulta}"></p>   -->
+</div>
+ <div class="container m-auto">
+<form action="#" th:action="@{nuevaRespuesta}"  th:object="${usuario}" method="post" enctype="multipart/form-data">
+<div class="mb-3 m-auto">
+<input type="hidden" th:field="*{id}"/>
+
+<div class="mb-3">
+ 	<label for="formFile" class="form-label">Respuesta</label>
+  <input type="text" th:field="*{respuesta}" class="form-control" id="formGroupExampleInput2" placeholder="Respuesta">
+<!--  <p th:if="${#fields.hasErrors('respuesta')}" th:errors="*{respuesta}">PRECIO ERROR</p>  -->
+</div>
+<div>
+ 
+<input type="submit" value="Responder" class="btn btn-success"/> 
+
+</div>
+</form>
+</div> 
+<!--******************************F O R M U L A R I O ************************************************************* -->
 
 
 
-
-
-
-
-
-
-
-<div class="container-fluid header">
-    <div class="container text-white">
-        <p><img src="MiniLogo.png" alt=""></p>
-        <p>TAPICERIA DE ESTILO</p>
-    </div>
-  </div>
 
 <div class="container-fluid bg-primary mt-5">
 

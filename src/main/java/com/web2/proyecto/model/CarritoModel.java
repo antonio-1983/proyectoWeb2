@@ -6,6 +6,8 @@ public class CarritoModel {
 	private int id;
 
 	private UsuarioModel usuario;
+	
+	
 
 	public int getId() {
 		return id;
@@ -23,8 +25,7 @@ public class CarritoModel {
 	public void setUsuario(UsuarioModel usuario) {
 		this.usuario = usuario;
 	}
-
-
+	
 	public CarritoModel() {
 		super();
 	}
@@ -39,6 +40,8 @@ public class CarritoModel {
 		super();
 		this.id = id;
 	}
+
+	
 	
 	
 	

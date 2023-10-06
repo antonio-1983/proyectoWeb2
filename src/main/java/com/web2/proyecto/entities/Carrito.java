@@ -2,7 +2,7 @@ package com.web2.proyecto.entities;
 
 
 import java.time.LocalDateTime;
-import java.util.List;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -28,14 +28,10 @@ public class Carrito {
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 	
-	//Relacion no propietaria
+	//Relacion no propietaria, conecta con usuario
 	@OneToOne(mappedBy = "carrito")
 	private Usuario usuario;
 
-	@OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Compra> compras;
-	
-	
 
 	public Carrito() {
 		super();
@@ -67,15 +63,10 @@ public class Carrito {
 		this.usuario = usuario;
 	}
 	
-	
 
-	public Carrito(int id, LocalDateTime createdAt, Usuario usuario, List<Compra> compras) {
-		super();
-		this.id = id;
-		this.createdAt = createdAt;
-		this.usuario = usuario;
-		this.compras = compras;
-	}
+	
+	
+	
 
 	public int getId() {
 		return id;
@@ -101,12 +92,6 @@ public class Carrito {
 		this.usuario = usuario;
 	}
 	
-	public List<Compra> getCompras() {
-		return compras;
-	}
-
-	public void setCompras(List<Compra> compras) {
-		this.compras = compras;
-	}
+	
 
 }

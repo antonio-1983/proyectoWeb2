@@ -11,7 +11,7 @@ import com.web2.proyecto.entities.Producto;
 @Repository("productoRepository")
 public interface IProductoRepository  extends JpaRepository<Producto, Serializable>{
 
-public abstract Producto findById(int id);
+	public abstract Producto findById(int id);
 	
 	public abstract Producto findByDescripcion(String descripcion);
 }

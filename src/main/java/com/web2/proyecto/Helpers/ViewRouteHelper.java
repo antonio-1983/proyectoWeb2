@@ -16,6 +16,16 @@ public class ViewRouteHelper {
 	public final static String NUEVO_PRODUCTO = "producto/productoSalida";
 	public final static String LISTA_PRODUCTOS = "producto/listaProductos";
 	
+	
+	
+	
+	//CONSULTAS**************AGREGADO 08/09/2023-*******************
+	public final static String LISTA_CONSULTAS = "consultas/listaConsultas";
+	public final static String FORM_CONSULTAS = "consultas/formConsultas";
+
+	
+	
+	
 	//CARRITO
 	public final static String CARRITO = "carrito/carrito";
 }

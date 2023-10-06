@@ -1,7 +1,6 @@
 package com.web2.proyecto.model;
 
-import java.util.HashSet;
-import java.util.Set;
+
 
 import javax.validation.constraints.Size;
 
@@ -20,13 +19,13 @@ public class ProductoModel {
 	private float precio;
 	
 	
-	public Set<CompraModel> compra = new HashSet<>();
+	
 	
 
 	@Override
 	public String toString() {
 		return "ProductoModel [id=" + id + ", descripcion=" + descripcion + ", imagen=" + imagen + ", precio=" + precio
-				+ ", compra=" + compra + "]";
+				+ ", compra="  + "]";
 	}
 
 	public ProductoModel() {
@@ -35,23 +34,19 @@ public class ProductoModel {
 
 
 
-	public ProductoModel(int id, @Size(min = 4, max = 20) String descripcion, String imagen, float precio) {
+	public ProductoModel(int id, @Size(min = 4, max = 20) String descripcion, String imagen, float precio)
+	{
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
 		this.imagen = imagen;
 		this.precio = precio;
+		
 	}
 
-	public ProductoModel(int id, @Size(min = 4, max = 20) String descripcion, String imagen, float precio,
-			Set<CompraModel> compra) {
-		super();
-		this.id = id;
-		this.descripcion = descripcion;
-		this.imagen = imagen;
-		this.precio = precio;
-		this.compra = compra;
-	}
+
+
+	
 
 	public int getId() {
 		return id;
@@ -85,6 +80,7 @@ public class ProductoModel {
 		this.precio = precio;
 	}
 
+	
 
 
 }

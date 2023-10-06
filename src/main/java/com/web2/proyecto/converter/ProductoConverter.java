@@ -3,6 +3,8 @@ package com.web2.proyecto.converter;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.web2.proyecto.entities.Producto;
@@ -10,6 +12,10 @@ import com.web2.proyecto.model.ProductoModel;
 
 @Component("productoConverter")
 public class ProductoConverter {
+	
+	
+	 
+	 
 
 	public ProductoModel entityToModel(Producto producto) {
 		return new ProductoModel(producto.getId(), producto.getDescripcion(),producto.getImagen(),producto.getPrecio());

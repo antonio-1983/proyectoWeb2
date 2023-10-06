@@ -27,9 +27,11 @@ public class Usuario {
 	@Column(name="email")
 	private String email;
 	
-	public String getEmail() {
-		return email;
-	}
+	@Column(name="consulta")
+	private String consulta;
+	
+	@Column(name="respuesta")
+	private String respuesta;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name= "carrito_id",referencedColumnName="id")
@@ -54,6 +56,49 @@ public class Usuario {
 		this.apellido = apellido;
 		this.email = email;
 		this.carrito = carrito;
+	}
+	
+	
+
+	public Usuario(int id, String nombre, String apellido, String email, String consulta, Carrito carrito) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.consulta = consulta;
+		this.carrito = carrito;
+	}
+	
+	
+
+	public Usuario(int id, String nombre, String apellido, String email, String consulta, String respuesta,
+			Carrito carrito) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.consulta = consulta;
+		this.respuesta = respuesta;
+		this.carrito = carrito;
+	}
+
+	
+	public String getRespuesta() {
+		return respuesta;
+	}
+
+	public void setRespuesta(String respuesta) {
+		this.respuesta = respuesta;
+	}
+
+	public String getConsulta() {
+		return consulta;
+	}
+
+	public void setConsulta(String consulta) {
+		this.consulta = consulta;
 	}
 
 	public int getId() {
@@ -92,6 +137,8 @@ public class Usuario {
 		this.email = email;
 	}
 
-		
+	public String getEmail() {
+		return email;
+	}
 
 }

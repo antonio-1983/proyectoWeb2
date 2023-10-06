@@ -44,17 +44,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
            <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav  ms-auto mb-auto mb-lg-0">
             
-                <li class="nav-item ">
-                <a class="nav-link active" aria-current="page" href="http://localhost:8080/carrito" alt="carrito">
-                  <i class="bi bi-cart3" title="Carrito"></i>
-                 </a>
-               </li>
               
-              <li class="nav-item ">
-                 <a class=" nav-link active " aria-current="page" href="http://localhost:8080/formularioUsuario" alt="login"><!--  target="_blank"-->
-                  <i class="bi bi-person" title="Login"></i>
-                 </a>
-               </li>
               
              </ul>
             </div>
@@ -73,7 +63,12 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <p th:text="${usuario.apellido}"></p>
 <p th:text="${usuario.email}"></p>
 <!-- <p th:text="${usuario.carrito.id}"></p>  -->
+<p>CONSULTA:</p>
+<p th:text="${usuario.consulta}"></p>
 </div>
+
+<h2>Gracias!! Nos comunicaremos a la brevedad</h2>
+
 <div>
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
@@ -93,9 +88,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
       				<div class="card-body">
        				 <h5 th:text="${p.descripcion}"></h5>
        					<p th:text="'$ ' + ${p.precio}"></p>
-       					<button type="button" class="btn btn-ligth m-auto">
-            					Agregar al carrito
-           					 </button>
+       					
       				</div>
     			</div>
   			</div>
